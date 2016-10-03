@@ -1,0 +1,22 @@
+{
+  "name": "BetterPagingIndicator",
+  "version": "0.1.0",
+  "summary": "A better paging indicator based on UIView that allows for IBDesignables",
+  "description": "A simple solution to making a more intersting paging indicator that can easily be setup to work with a UICollectionView",
+  "homepage": "https://github.com/mikemilla/better-page-indicator",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Michael Miller": "mail@mikemilla.com"
+  },
+  "source": {
+    "git": "https://github.com/mikemilla/better-page-indicator.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "BetterPagingIndicator/Classes/**/*"
+}

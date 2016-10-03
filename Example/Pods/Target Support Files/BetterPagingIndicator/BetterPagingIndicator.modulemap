@@ -1,0 +1,6 @@
+framework module BetterPagingIndicator {
+  umbrella header "BetterPagingIndicator-umbrella.h"
+
+  export *
+  module * { export * }
+}

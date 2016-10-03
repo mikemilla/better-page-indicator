@@ -9,24 +9,15 @@
 Pod::Spec.new do |s|
   s.name             = 'BetterPagingIndicator'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of BetterPagingIndicator.'
+  s.summary          = 'A better paging indicator based on UIView that allows for IBDesignables'
+  s.description      = 'A simple solution to making a more intersting paging indicator that can easily be setup to work with a UICollectionView'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/BetterPagingIndicator'
+  s.homepage         = 'https://github.com/mikemilla/better-page-indicator'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Michael Miller' => 'mail@mikemilla.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/BetterPagingIndicator.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/mikemilla/better-page-indicator.git', :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/killamikemilla'
 
   s.ios.deployment_target = '8.0'
 

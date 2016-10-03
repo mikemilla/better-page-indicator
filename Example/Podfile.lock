@@ -1,0 +1,16 @@
+PODS:
+  - BetterPagingIndicator (0.1.0)
+
+DEPENDENCIES:
+  - BetterPagingIndicator (from `../`)
+
+EXTERNAL SOURCES:
+  BetterPagingIndicator:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  BetterPagingIndicator: 10d90c1a425a9a44ce3e96c0a29509a16bfbf9ec
+
+PODFILE CHECKSUM: f04af7d0d0e7416c64ca7428c0f8d8a427fa2e2e
+
+COCOAPODS: 1.0.1

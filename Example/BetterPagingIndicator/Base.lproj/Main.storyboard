@@ -1,25 +1,111 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yoo-vV-WLO">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <!--Navigation Controller-->
+        <scene sceneID="Qp7-4w-wWo">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <navigationController id="yoo-vV-WLO" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="o7M-jx-Jrl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="si5-rv-Uaz" kind="relationship" relationship="rootViewController" id="zGB-Rj-Pin"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="odn-UH-ka1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-168" y="452"/>
+        </scene>
+        <!--Paging View Controller-->
+        <scene sceneID="v2h-kJ-Aqw">
+            <objects>
+                <viewController id="si5-rv-Uaz" customClass="PagingViewController" customModule="BetterPagingIndicator_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hFv-4U-z4j"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y8U-NX-9Re"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Oxd-ll-c3o">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Uft-WH-Jug">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" red="0.0" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="VFd-5I-Gwg"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="zcb-rv-8TC">
+                                    <size key="itemSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="VFd-5I-Gwg"/>
+                                    </mask>
+                                </variation>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvM-ht-t6r" customClass="BetterPagingIndicatorView" customModule="BetterPagingIndicator">
+                                <rect key="frame" x="142" y="528" width="36" height="8"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Uft-WH-Jug" firstAttribute="top" secondItem="hFv-4U-z4j" secondAttribute="bottom" id="0nw-3G-zZb"/>
+                            <constraint firstAttribute="trailing" secondItem="Uft-WH-Jug" secondAttribute="trailing" id="3fA-pH-hP5"/>
+                            <constraint firstItem="Y8U-NX-9Re" firstAttribute="top" secondItem="wvM-ht-t6r" secondAttribute="bottom" constant="32" id="El0-cf-Jdv"/>
+                            <constraint firstItem="Y8U-NX-9Re" firstAttribute="top" secondItem="Uft-WH-Jug" secondAttribute="bottom" id="TYQ-Bk-Inb"/>
+                            <constraint firstItem="Uft-WH-Jug" firstAttribute="leading" secondItem="Oxd-ll-c3o" secondAttribute="leading" id="eGS-82-nVB"/>
+                            <constraint firstItem="wvM-ht-t6r" firstAttribute="centerX" secondItem="Oxd-ll-c3o" secondAttribute="centerX" id="yrJ-35-9wS"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="k3f-9C-iJY">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="djR-jT-cpJ">
+                            <connections>
+                                <segue destination="hBw-qN-ZrX" kind="show" id="LzN-OR-El6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="betterPagingIndicatorView" destination="wvM-ht-t6r" id="WvE-GR-ku9"/>
+                        <outlet property="collectionView" destination="Uft-WH-Jug" id="gyT-3R-MlY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tY4-C0-lqQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="293" y="452"/>
+        </scene>
+        <!--Edit View Controller-->
+        <scene sceneID="5i3-mb-F5c">
+            <objects>
+                <viewController id="hBw-qN-ZrX" customClass="EditViewController" customModule="BetterPagingIndicator_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0M4-sU-Muw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rz4-FQ-1Wr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="afe-f9-Zt1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MyN-6z-L8a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="751" y="452"/>
         </scene>
     </scenes>
 </document>
