@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'BetterPagingIndicator_Example' do
+  pod 'BetterPagingIndicator', :path => '../'
+
+  target 'BetterPagingIndicator_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
