@@ -167,8 +167,8 @@
 		7AD6D8C01DA1DEE200870579 /* Paging View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7AD6D8BF1DA1DE5600870579 /* Collection View Cell */,
 				7AD6D8B71DA1DD1E00870579 /* PagingViewController.swift */,
+				7AD6D8BF1DA1DE5600870579 /* Collection View Cell */,
 			);
 			name = "Paging View Controller";
 			sourceTree = "<group>";

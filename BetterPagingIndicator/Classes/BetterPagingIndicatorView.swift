@@ -21,24 +21,38 @@ public class BetterPagingIndicatorView: UIView {
                 
                 // Set observer to listen to scrollview offset changes
                 scrollView.addObserver(self, forKeyPath: contentOffset, options: .New, context: nil)
+                
+                // Set number of pages based on the view type
+                if (scrollView.isKindOfClass(UICollectionView)) {
+                    let collectionView = scrollView as! UICollectionView
+                    let numberOfPages = Int(collectionView.collectionViewLayout.collectionViewContentSize().width / scrollView.frame.width)
+                    numberOfDots = numberOfPages
+                } else if (scrollView.isKindOfClass(UIScrollView)) {
+                    let numberOfPages = Int(scrollView.contentSize.width / scrollView.frame.width)
+                    numberOfDots = numberOfPages
+                } else {
+                    print("BetterPagingIndicatorView only works with UIScrollViews or UICollectionViews. Sorry :/")
+                }
             }
         }
     }
     
     // MARK: Constants
-    let contentOffset = "contentOffset"
+    private let contentOffset = "contentOffset"
     
     // MARK: Views
     private var containerView:UIView = UIView()
     private let indicatorCircle:UIView = UIView()
     
+    // MARK: Variables
+    private var numberOfDots:Int = 3
+    
     // MARK: Inspectables
-    @IBInspectable var numberOfDots:Int = 3
-    @IBInspectable var dotHeight:CGFloat = 8
-    @IBInspectable var dotColor:UIColor = UIColor.grayColor()
-    @IBInspectable var dotStrokeWidth:CGFloat = 2
-    @IBInspectable var distanceBetweenDots:CGFloat = 6
-    @IBInspectable var indicatorColor:UIColor = UIColor.blackColor()
+    @IBInspectable public var dotHeight:CGFloat = 8
+    @IBInspectable public var dotColor:UIColor = UIColor.grayColor()
+    @IBInspectable public var dotStrokeWidth:CGFloat = 2
+    @IBInspectable public var distanceBetweenDots:CGFloat = 6
+    @IBInspectable public var indicatorColor:UIColor = UIColor.blackColor()
     
     // MARK: Init
     override init(frame: CGRect) {
@@ -62,6 +76,17 @@ public class BetterPagingIndicatorView: UIView {
         setupView()
     }
     
+    public func refresh() {
+        
+        // Remove all contained views
+        for subview in containerView.subviews {
+            subview.removeFromSuperview()
+        }
+        
+        // Reload
+        setupView()
+    }
+    
     // MARK: Build View
     private func setupView() {
         
@@ -72,7 +97,7 @@ public class BetterPagingIndicatorView: UIView {
         addSubview(containerView)
         
         // Add the dots
-        for i in 0...numberOfDots - 1 {
+        for i in 0..<numberOfDots {
             let index:CGFloat = CGFloat(i)
             let dot:UIView = UIView(frame: CGRectMake((index * dotHeight) + (index * distanceBetweenDots), 0, dotHeight, dotHeight))
             dot.layer.cornerRadius = dot.frame.width / 2
